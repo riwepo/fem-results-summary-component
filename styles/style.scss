@@ -22,6 +22,7 @@
   --card-background-color: var(--white-color);
   --card-shadow-color: var(--pale-blue-color);
   --card-main-background-color: var(--cobalt-blue-color);
+  --card-main-text-color: var(--white-color);
   --card-summary-background-color: var(--white-color);
 
   // fonts
@@ -54,10 +55,19 @@ body {
     background-color: var(--card-main-background-color);
     width: 50%;
     border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--card-main-text-color);
   }
   &__summary {
     background-color: var(--card-summary-background-color);
     width: 50%;
     border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
 }
