@@ -14,4 +14,8 @@
   --dark-gray-blue: hsl(224, 30%, 27%);
   --font-family: "Hanken Grotesk", sans-serif;
   font-size: 62.5%;
+}
+
+body {
+  background-color: red;
 }/*# sourceMappingURL=style.css.map */
