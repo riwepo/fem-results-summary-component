@@ -33,4 +33,13 @@
 
 body {
   background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 50rem;
+  height: 50rem;
+  background-color: var(--cobalt-blue-color);
 }
