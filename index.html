@@ -23,26 +23,29 @@
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
-    <section class="card">
-      <main class="card__main">
-        <header>Your Result</header>
-        <main>76 of 100</main>
-        <summary>Great</summary>
-        <aside>
-          You scored higher than 65% of people who have taken these tests.
-        </aside>
-      </main>
+    <main class="card">
       <summary class="card__summary">
-        <header>Summary</header>
-        <ul>
+        <div class="card__summary card__summary--header">Your Result</div>
+        <div class="card__summary card__summary--score-container">
+          <div class="card__summary card__summary--score">76</div>
+          <div class="card__summary card__summary--score-of">of 100</div>
+        </div>
+        <div class="card__summary card__summary--score-eval">Great</div>
+        <div class="card__summary card__summary--score-comment">
+          You scored higher than 65% of people who have taken these tests.
+        </div>
+      </summary>
+      <details class="card__detail">
+        <div class="card__detail card__detail--header">Summary</div>
+        <ul class="card__detail card__detail--list">
           <li>Reaction</li>
           <li>Memory</li>
           <li>Verbal</li>
           <li>Visual</li>
         </ul>
-        <button>Continue</button>
-      </summary>
-    </section>
+        <button class="card__detail card__detail--button">Continue</button>
+      </details>
+    </main>
     <!-- Your Result 76 of 100 Great You scored higher than 65% of the people who
     have taken these tests. Summary Reaction 80 / 100 Memory 92 / 100 Verbal 61
     / 100 Visual 72 / 100 Continue -->
