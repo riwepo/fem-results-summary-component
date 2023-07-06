@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/riwepo/fem-results-summary-component)
-- Live Site URL: [Add live site URL here](https://riwepo.github.io/fem-results-summary-component/)
+- Solution URL: [solution](https://github.com/riwepo/fem-results-summary-component)
+- Live Site URL: [live site](https://riwepo.github.io/fem-results-summary-component/)
 
 ## My process
 
@@ -54,12 +54,14 @@ I learned about BEM class naming. Originally I got it wrong but I think I got it
 ### Useful resources
 
 https://cssgridgarden.com/ - best way to learn CSS grid
+
 https://flexboxfroggy.com/ - best way to learn flexbox
+
 https://getbem.com/naming/ - explanation of Block, Element, Modifier naming
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/riwepo)
+- Frontend Mentor - [@riwepo](https://www.frontendmentor.io/profile/riwepo)
 
 ## Acknowledgments
 
