@@ -3,9 +3,13 @@
 :root {
   // colors
   --light-red-color: hsl(0, 100%, 67%);
+  --light-red-tp-color: hsl(0, 100%, 67%, 0.2);
   --orangey-red-color: hsl(39, 100%, 56%);
+  --orangey-red-tp-color: hsl(39, 100%, 56%, 0.2);
   --green-teal-color: hsl(166, 100%, 37%);
+  --green-teal-tp-color: hsl(166, 100%, 37%, 0.2);
   --cobalt-blue-color: hsl(234, 85%, 45%);
+  --cobalt-blue-tp-color: hsl(234, 85%, 45%, 0.2);
 
   --light-slate-blue-color: hsl(252, 100%, 67%);
   --light-royal-blue-color: hsl(241, 81%, 54%);
@@ -19,89 +23,205 @@
 
   // color use
   --body-background-color: var(--white-color);
+
+  // card colors
   --card-background-color: var(--white-color);
   --card-shadow-color: var(--pale-blue-color);
-  --card-summary-background-color: var(--cobalt-blue-color);
+
+  // card-summary colors
+  --card-summary-background-gradient: linear-gradient(
+    to bottom,
+    var(--light-slate-blue-color),
+    var(--light-royal-blue-color)
+  );
   --card-summary-text-color: var(--white-color);
+  --card-summary-header-text-color: var(--light-lavender-color);
+  --card-summary-score-container-background-gradient: linear-gradient(
+    to bottom,
+    var(--violet-blue-color),
+    var(--persian-blue-color)
+  );
+  --card-summary-score-text-color: var(--white-color);
+  --card-summary-score-of-text-color: var(--light-lavender-color);
+  --card-summary-score-eval-text-color: var(--pale-blue-color);
+  --card-summary-score-comment-text-color: var(--light-lavender-color);
+
+  // card detail colors
   --card-detail-background-color: var(--white-color);
+  --card-detail-header-text-color: var(--dark-gray-blue-color);
+  --card-detail-first-background-color: var(--light-red-tp-color);
+  --card-detail-first-text-color: var(--light-red-color);
+  --card-detail-second-background-color: var(--orangey-red-tp-color);
+  --card-detail-second-text-color: var(--orangey-red-color);
+  --card-detail-third-background-color: var(--green-teal-tp-color);
+  --card-detail-third-text-color: var(--green-teal-color);
+  --card-detail-fourth-background-color: var(--cobalt-blue-tp-color);
+  --card-detail-fourth-text-color: var(--cobalt-blue-color);
+  --card-detail-item-score-color: var(--dark-gray-blue-color);
+  --card-detail-button-background-color: var(--dark-gray-blue-color);
+  --card-detail-button-text-color: var(--pale-blue-color);
+  --card-detail-button-hover-background-gradient: linear-gradient(
+    to bottom,
+    var(--light-slate-blue-color),
+    var(--light-royal-blue-color)
+  );
 
   // fonts
-  --font-family: "Hanken Grotesk", sans-serif;
-
+  font-family: "Hanken Grotesk", sans-serif;
   // default font size is 16px
   // we want 1rem to be 10px for easy calcs
   // using 62.5% instead of hardcoding 10px
   // still allows the user to change her browser default
   font-size: 62.5%;
+
+  /* card summary fonts */
+  --card-summary-header-font-size: 1.6rem;
+  --card-summary-score-font-size: 4.8rem;
+  --card-summary-score-of-font-size: 1rem;
+  --card-summary-score-eval-font-size: 2rem;
+  --card-summary-score-commment-font-size: 1rem;
+
+  /* card detail fonts */
+  --card-detail-header-font-size: 1.6rem;
+  --card-detail-button-font-size: 1.6rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: var(--body-background-color);
+  // center the card in the middle of the screen
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
 .card {
+  // fix the card width
   width: 72rem;
-  height: 48rem;
+
+  // allow the height to be whatever is needed
+
+  // display at a fixed distance from top of viewport
   margin-top: 2rem;
+
   background-color: var(--card-background-color);
   border-radius: 2rem;
   box-shadow: 2rem 2rem var(--card-shadow-color);
   display: flex;
   flex-direction: row;
   justify-content: center;
-  &__summary {
-    background-color: var(--card-summary-background-color);
-    width: 50%;
-    border-radius: 2rem;
+}
+.card-summary {
+  background-image: var(--card-summary-background-gradient);
+  width: 50%;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3.2rem 4.8rem;
+  &__header {
+    font-size: var(--card-summary-header-font-size);
+    color: var(--card-summary-header-text-color);
+  }
+  &__score-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    color: var(--card-summary-text-color);
-    .card__summary--header {
-      font-size: 2rem;
-    }
-    .card__summary--score-container {
-      width: 50%;
-      aspect-ratio: 1/1;
-      border-radius: 100rem;
-      background-image: linear-gradient(
-        var(--violet-blue-color),
-        var(--persian-blue-color)
-      );
-    }
-    .card__summary--score {
-      font-size: 3.6rem;
-    }
-    .card__summary--score-of {
-      font-size: 1rem;
-    }
-    .card__summary--score-eval {
-      font-size: 1rem;
-    }
-    .card__summary--score-comment {
-      font-size: 1rem;
+    width: 50%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-image: var(--card-summary-score-container-background-gradient);
+  }
+  &__score {
+    color: var(--card-summary-score-text-color);
+    font-size: var(--card-summary-score-font-size);
+  }
+  &__score-of {
+    color: var(--card-summary-score-of-text-color);
+    font-weight: bold;
+    opacity: 0.7;
+    font-size: var(--card-summary-score-of-font-size);
+  }
+  &__score-eval {
+    font-size: var(--card-summary-score-eval-font-size);
+    color: var(--card-summary-score-eval-text-color);
+  }
+  &__score-comment {
+    font-size: var(--card-summary-score-commment-font-size);
+    color: var(--card-summary-score-comment-text-color);
+    font-weight: 500;
+    text-align: center;
+  }
+}
+.card-detail {
+  background-color: var(--card-detail-background-color);
+  width: 50%;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  // align-items: center;
+  align-items: stretch;
+  padding: 1.6rem 3.2rem;
+  gap: 2.4rem;
+  &__header {
+    font-size: var(--card-detail-header-font-size);
+    color: var(--card-detail-header-text-color);
+  }
+  &__item {
+    padding: 1rem 1rem;
+    // display: flex;
+    // flex-direction: row;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr;
+    border-radius: 1rem;
+  }
+  &__item:nth-of-type(1) {
+    color: var(--card-detail-first-text-color);
+    background-color: var(--card-detail-first-background-color);
+  }
+  &__item:nth-of-type(2) {
+    color: var(--card-detail-second-text-color);
+    background-color: var(--card-detail-second-background-color);
+  }
+  &__item:nth-of-type(3) {
+    color: var(--card-detail-third-text-color);
+    background-color: var(--card-detail-third-background-color);
+  }
+  &__item:nth-of-type(4) {
+    color: var(--card-detail-fourth-text-color);
+    background-color: var(--card-detail-fourth-background-color);
+  }
+
+  &__item-score {
+    grid-column: 4;
+    text-align: end;
+    color: var(--card-detail-item-score-color);
+    .score {
+      font-weight: bolder;
     }
   }
-  &__detail {
-    background-color: var(--card-detail-background-color);
-    width: 50%;
-    border-radius: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    .card__detail--header {
-      font-size: 1rem;
-    }
-    .card__detail--list {
-      font-size: 1rem;
-    }
-    .card__detail--button {
-      font-size: 1rem;
+  &__button {
+    font-size: var(--card-detail-button-font-size);
+    color: var(--card-detail-button-text-color);
+    background-color: var(--card-detail-button-background-color);
+    border-radius: 3rem;
+    text-align: center;
+    font-weight: 500;
+    padding-block: 1.6rem;
+
+    &:hover,
+    &:active {
+      background-image: var(--card-detail-button-hover-background-gradient);
+      cursor: pointer;
     }
   }
 }

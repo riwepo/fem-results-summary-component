@@ -1,9 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Outfit:wght@400;700&display=swap");
 :root {
   --light-red-color: hsl(0, 100%, 67%);
+  --light-red-tp-color: hsl(0, 100%, 67%, 0.2);
   --orangey-red-color: hsl(39, 100%, 56%);
+  --orangey-red-tp-color: hsl(39, 100%, 56%, 0.2);
   --green-teal-color: hsl(166, 100%, 37%);
+  --green-teal-tp-color: hsl(166, 100%, 37%, 0.2);
   --cobalt-blue-color: hsl(234, 85%, 45%);
+  --cobalt-blue-tp-color: hsl(234, 85%, 45%, 0.2);
   --light-slate-blue-color: hsl(252, 100%, 67%);
   --light-royal-blue-color: hsl(241, 81%, 54%);
   --violet-blue-color: hsla(256, 72%, 46%, 1);
@@ -15,23 +19,68 @@
   --body-background-color: var(--white-color);
   --card-background-color: var(--white-color);
   --card-shadow-color: var(--pale-blue-color);
-  --card-summary-background-color: var(--cobalt-blue-color);
+  --card-summary-background-gradient: linear-gradient(
+    to bottom,
+    var(--light-slate-blue-color),
+    var(--light-royal-blue-color)
+  );
   --card-summary-text-color: var(--white-color);
+  --card-summary-header-text-color: var(--light-lavender-color);
+  --card-summary-score-container-background-gradient: linear-gradient(
+    to bottom,
+    var(--violet-blue-color),
+    var(--persian-blue-color)
+  );
+  --card-summary-score-text-color: var(--white-color);
+  --card-summary-score-of-text-color: var(--light-lavender-color);
+  --card-summary-score-eval-text-color: var(--pale-blue-color);
+  --card-summary-score-comment-text-color: var(--light-lavender-color);
   --card-detail-background-color: var(--white-color);
-  --font-family: "Hanken Grotesk", sans-serif;
+  --card-detail-header-text-color: var(--dark-gray-blue-color);
+  --card-detail-first-background-color: var(--light-red-tp-color);
+  --card-detail-first-text-color: var(--light-red-color);
+  --card-detail-second-background-color: var(--orangey-red-tp-color);
+  --card-detail-second-text-color: var(--orangey-red-color);
+  --card-detail-third-background-color: var(--green-teal-tp-color);
+  --card-detail-third-text-color: var(--green-teal-color);
+  --card-detail-fourth-background-color: var(--cobalt-blue-tp-color);
+  --card-detail-fourth-text-color: var(--cobalt-blue-color);
+  --card-detail-item-score-color: var(--dark-gray-blue-color);
+  --card-detail-button-background-color: var(--dark-gray-blue-color);
+  --card-detail-button-text-color: var(--pale-blue-color);
+  --card-detail-button-hover-background-gradient: linear-gradient(
+    to bottom,
+    var(--light-slate-blue-color),
+    var(--light-royal-blue-color)
+  );
+  font-family: "Hanken Grotesk", sans-serif;
   font-size: 62.5%;
+  /* card summary fonts */
+  --card-summary-header-font-size: 1.6rem;
+  --card-summary-score-font-size: 4.8rem;
+  --card-summary-score-of-font-size: 1rem;
+  --card-summary-score-eval-font-size: 2rem;
+  --card-summary-score-commment-font-size: 1rem;
+  /* card detail fonts */
+  --card-detail-header-font-size: 1.6rem;
+  --card-detail-button-font-size: 1.6rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: var(--body-background-color);
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
 .card {
   width: 72rem;
-  height: 48rem;
   margin-top: 2rem;
   background-color: var(--card-background-color);
   border-radius: 2rem;
@@ -40,52 +89,108 @@ body {
   flex-direction: row;
   justify-content: center;
 }
-.card__summary {
-  background-color: var(--card-summary-background-color);
+
+.card-summary {
+  background-image: var(--card-summary-background-gradient);
   width: 50%;
   border-radius: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  color: var(--card-summary-text-color);
+  padding: 3.2rem 4.8rem;
 }
-.card__summary .card__summary--header {
-  font-size: 2rem;
+.card-summary__header {
+  font-size: var(--card-summary-header-font-size);
+  color: var(--card-summary-header-text-color);
 }
-.card__summary .card__summary--score-container {
+.card-summary__score-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 50%;
   aspect-ratio: 1/1;
-  border-radius: 100rem;
-  background-image: linear-gradient(var(--violet-blue-color), var(--persian-blue-color));
+  border-radius: 50%;
+  background-image: var(--card-summary-score-container-background-gradient);
 }
-.card__summary .card__summary--score {
-  font-size: 3.6rem;
+.card-summary__score {
+  color: var(--card-summary-score-text-color);
+  font-size: var(--card-summary-score-font-size);
 }
-.card__summary .card__summary--score-of {
-  font-size: 1rem;
+.card-summary__score-of {
+  color: var(--card-summary-score-of-text-color);
+  font-weight: bold;
+  opacity: 0.7;
+  font-size: var(--card-summary-score-of-font-size);
 }
-.card__summary .card__summary--score-eval {
-  font-size: 1rem;
+.card-summary__score-eval {
+  font-size: var(--card-summary-score-eval-font-size);
+  color: var(--card-summary-score-eval-text-color);
 }
-.card__summary .card__summary--score-comment {
-  font-size: 1rem;
+.card-summary__score-comment {
+  font-size: var(--card-summary-score-commment-font-size);
+  color: var(--card-summary-score-comment-text-color);
+  font-weight: 500;
+  text-align: center;
 }
-.card__detail {
+
+.card-detail {
   background-color: var(--card-detail-background-color);
   width: 50%;
   border-radius: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: stretch;
+  padding: 1.6rem 3.2rem;
+  gap: 2.4rem;
+}
+.card-detail__header {
+  font-size: var(--card-detail-header-font-size);
+  color: var(--card-detail-header-text-color);
+}
+.card-detail__item {
+  padding: 1rem 1rem;
   align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr;
+  border-radius: 1rem;
 }
-.card__detail .card__detail--header {
-  font-size: 1rem;
+.card-detail__item:nth-of-type(1) {
+  color: var(--card-detail-first-text-color);
+  background-color: var(--card-detail-first-background-color);
 }
-.card__detail .card__detail--list {
-  font-size: 1rem;
+.card-detail__item:nth-of-type(2) {
+  color: var(--card-detail-second-text-color);
+  background-color: var(--card-detail-second-background-color);
 }
-.card__detail .card__detail--button {
-  font-size: 1rem;
+.card-detail__item:nth-of-type(3) {
+  color: var(--card-detail-third-text-color);
+  background-color: var(--card-detail-third-background-color);
+}
+.card-detail__item:nth-of-type(4) {
+  color: var(--card-detail-fourth-text-color);
+  background-color: var(--card-detail-fourth-background-color);
+}
+.card-detail__item-score {
+  grid-column: 4;
+  text-align: end;
+  color: var(--card-detail-item-score-color);
+}
+.card-detail__item-score .score {
+  font-weight: bolder;
+}
+.card-detail__button {
+  font-size: var(--card-detail-button-font-size);
+  color: var(--card-detail-button-text-color);
+  background-color: var(--card-detail-button-background-color);
+  border-radius: 3rem;
+  text-align: center;
+  font-weight: 500;
+  padding-block: 1.6rem;
+}
+.card-detail__button:hover, .card-detail__button:active {
+  background-image: var(--card-detail-button-hover-background-gradient);
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
