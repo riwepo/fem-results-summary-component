@@ -65,7 +65,7 @@ https://getbem.com/naming/ - explanation of Block, Element, Modifier naming
 
 ## Acknowledgments
 
-I got stuck starting and Adrian Gallano solution really helpeed me.
+I got stuck starting and Adrian Gallano solution really helped me.
 Gracias amigo!
 
 https://github.com/AdrianGallano/results-summary-component
