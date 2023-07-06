@@ -186,6 +186,7 @@ body {
   color: var(--card-detail-button-text-color);
   background-color: var(--card-detail-button-background-color);
   border-radius: 3rem;
+  border: none;
   text-align: center;
   font-weight: 500;
   padding-block: 1.6rem;
@@ -193,4 +194,17 @@ body {
 .card-detail__button:hover, .card-detail__button:active {
   background-image: var(--card-detail-button-hover-background-gradient);
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 36rem;
+    flex-direction: column;
+  }
+  .card-summary {
+    width: 100%;
+  }
+  .card-detail {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */

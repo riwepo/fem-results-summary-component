@@ -103,6 +103,7 @@ body {
 .card {
   // fix the card width
   width: 72rem;
+  // width: 36rem; mobile
 
   // allow the height to be whatever is needed
 
@@ -114,11 +115,13 @@ body {
   box-shadow: 2rem 2rem var(--card-shadow-color);
   display: flex;
   flex-direction: row;
+  // flex-direction: column; mobile
   justify-content: center;
 }
 .card-summary {
   background-image: var(--card-summary-background-gradient);
   width: 50%;
+  // width: 100%; mobile
   border-radius: 2rem;
   display: flex;
   flex-direction: column;
@@ -163,11 +166,11 @@ body {
 .card-detail {
   background-color: var(--card-detail-background-color);
   width: 50%;
+  // width: 100%; mobile
   border-radius: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  // align-items: center;
   align-items: stretch;
   padding: 1.6rem 3.2rem;
   gap: 2.4rem;
@@ -177,8 +180,6 @@ body {
   }
   &__item {
     padding: 1rem 1rem;
-    // display: flex;
-    // flex-direction: row;
     align-items: center;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 2fr;
@@ -214,6 +215,7 @@ body {
     color: var(--card-detail-button-text-color);
     background-color: var(--card-detail-button-background-color);
     border-radius: 3rem;
+    border: none;
     text-align: center;
     font-weight: 500;
     padding-block: 1.6rem;
@@ -223,5 +225,23 @@ body {
       background-image: var(--card-detail-button-hover-background-gradient);
       cursor: pointer;
     }
+  }
+}
+
+// media query for mobile
+@media (max-width: 768px) {
+  .card {
+    // fix the card width
+    width: 36rem;
+    // for mobile display in a column
+    flex-direction: column;
+  }
+  .card-summary {
+    // for mobile use full column width
+    width: 100%;
+  }
+  .card-detail {
+    // for mobile use full column width
+    width: 100%;
   }
 }
