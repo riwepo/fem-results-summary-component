@@ -24,28 +24,56 @@
   </head>
   <body>
     <main class="card">
-      <summary class="card__summary">
-        <div class="card__summary card__summary--header">Your Result</div>
-        <div class="card__summary card__summary--score-container">
-          <div class="card__summary card__summary--score">76</div>
-          <div class="card__summary card__summary--score-of">of 100</div>
+      <section class="card-summary">
+        <div class="card-summary__header">Your Result</div>
+        <div class="card-summary__score-container">
+          <div class="card-summary__score">76</div>
+          <div class="card-summary__score-of">of 100</div>
         </div>
-        <div class="card__summary card__summary--score-eval">Great</div>
-        <div class="card__summary card__summary--score-comment">
+        <div class="card-summary__score-eval">Great</div>
+        <div class="card-summary__score-comment">
           You scored higher than 65% of people who have taken these tests.
         </div>
-      </summary>
-      <details class="card__detail">
-        <div class="card__detail card__detail--header">Summary</div>
-        <ul class="card__detail card__detail--list">
-          <li>Reaction</li>
-          <li>Memory</li>
-          <li>Verbal</li>
-          <li>Visual</li>
-        </ul>
-        <button class="card__detail card__detail--button">Continue</button>
-      </details>
+      </section>
+      <section class="card-detail">
+        <h2 class="card-detail__header">Summary</h2>
+
+        <div class="card-detail__item">
+          <img src="./assets/images/icon-reaction.svg" alt="" />
+          <h5 class="card-detail__item-name">Reaction</h5>
+          <span class="card-detail__item-score"
+            ><span class="score">80</span> / 100</span
+          >
+        </div>
+
+        <div class="card-detail__item">
+          <img src="./assets/images/icon-memory.svg" alt="" />
+          <h5 class="card-detail__item-name">Memory</h5>
+          <span class="card-detail__item-score"
+            ><span class="score">92</span> / 100</span
+          >
+        </div>
+
+        <div class="card-detail__item">
+          <img src="./assets/images/icon-verbal.svg" alt="" />
+          <h5 class="card-detail__item-name">Verbal</h5>
+          <span class="card-detail__item-score"
+            ><span class="score">61</span> / 100</span
+          >
+        </div>
+
+        <div class="card-detail__item">
+          <img src="./assets/images/icon-visual.svg" alt="" />
+          <h5 class="card-detail__item-name">Visual</h5>
+          <span class="card-detail__item-score"
+            ><span class="score">72</span> / 100</span
+          >
+        </div>
+
+        <button class="card-detail__button">Continue</button>
+      </section>
     </main>
+
     <!-- Your Result 76 of 100 Great You scored higher than 65% of the people who
     have taken these tests. Summary Reaction 80 / 100 Memory 92 / 100 Verbal 61
     / 100 Visual 72 / 100 Continue -->
